@@ -415,228 +415,299 @@ iframe[src*="netlify"] {
       </div>
     </div>
   </section>
-  <!-- MODAL REGLAMENTO CON ACORDEÓN EXCLUSIVO Y FONDO DE CÓCTEL -->
-<div id="modalReglamento" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center; padding: 20px;">
-  <div class="modal-reglamento-bg" style="position: relative; width: 100%; max-width: 750px; background: #ffffff; border-radius: 20px; padding: 35px 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.4); overflow: hidden;">
-    
-    <!-- Imagen de fondo difuminada de cóctel -->
-    <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: url('https://images.unsplash.com/photo-1514362545857-3bc164c7d1b?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat; opacity: 0.08; pointer-events: none;"></div>
-
-    <!-- Botón de Cierre -->
-    <span class="modal-close" onclick="cerrarModalReglamento()" style="position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #333; z-index: 10;">&times;</span>
-    
-    <div style="text-align: center; margin-bottom: 25px; position: relative; z-index: 2;">
-      <i class="fa-solid fa-book-open" style="font-size: 2.2rem; color: #b08d57;"></i>
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #2c2c2c; margin-top: 8px;">Reglamento Oficial - Copa Espíritu del Sur</h2>
-      <p style="color: #666; font-size: 0.85rem;">Bases y Condiciones Generales (20 Puntos)</p>
+<!-- SECCIÓN REGLAMENTO - MODAL Y ACORDEÓN -->
+<section id="reglamento-seccion" style="padding: 40px 20px; background-color: #111; color: #fff; text-align: center;">
+    <div class="visual-tile" style="max-width: 300px; margin: 0 auto; background: #222; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" alt="Cóctel" style="width: 100%; height: 180px; object-fit: cover; filter: brightness(0.7);">
+        <div style="padding: 20px;">
+            <button onclick="abrirModalReglamento()" style="background-color: #d4af37; color: #000; border: none; padding: 12px 20px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fa-solid fa-scroll"></i> Ver Reglamento Oficial
+            </button>
+        </div>
     </div>
+</section>
 
-    <!-- CONTENEDOR DEL ACORDEÓN -->
-    <div class="acordeon-container" style="max-height: 55vh; overflow-y: auto; padding-right: 5px; position: relative; z-index: 2;">
-      
-      <!-- Punto 1 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>1. Participantes y Elegibilidad</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">La competencia está abierta a bartenders profesionales, sommeliers, productores y aficionados mayores de 18 años residentes en Argentina, Chile y países invitados. Cada participante compite a título personal o representando a un establecimiento/marca.</p>
-        </div>
-      </div>
+<!-- MODAL CON FONDO DIFUMINADO -->
+<div id="modalReglamento" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 9999; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;">
+    
+    <!-- CONTENEDOR DEL MODAL CON IMAGEN DE FONDO DIFUMINADA -->
+    <div style="position: relative; width: 100%; max-width: 800px; height: 90vh; background: #1a1a1a; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; flex-direction: column;">
+        
+        <!-- Fondo difuminado interior -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; filter: blur(12px) brightness(0.3); z-index: 0;"></div>
 
-      <!-- Punto 2 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>2. Inscripción y Arancel</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
+        <!-- ENCABEZADO DEL MODAL -->
+        <div style="position: relative; z-index: 1; padding: 20px; background: rgba(0,0,0,0.6); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <h3 style="margin: 0; color: #d4af37; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Reglamento Oficial - Copa Espíritu del Sur 2026</h3>
+            <button onclick="cerrarModalReglamento()" style="background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; padding: 0 10px;">&times;</button>
         </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">La inscripción se formaliza completando el formulario web y abonando el arancel estipulado de 30 USD. El cupo de participantes es limitado y la vacante solo se confirma tras la validación del comprobante de pago enviado por los canales oficiales.</p>
-        </div>
-      </div>
 
-      <!-- Punto 3 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>3. Dinámica y Tiempos de Presentación</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Cada competidor dispondrá de un tiempo total de 7 (siete) minutos cronometrados para la preparación, el montaje y la exposición oral de su cóctel en escena ante el jurado. El tiempo comienza a correr a la señal del juez de pista.</p>
-        </div>
-      </div>
+        <!-- CUERPO CON SCROLL Y ACORDEONES -->
+        <div style="position: relative; z-index: 1; padding: 20px; overflow-y: auto; flex-grow: 1;">
+            
+            <div style="text-align: center; margin-bottom: 20px; color: #ddd;">
+                <h2 style="color: #d4af37; font-size: 1.4rem; margin-bottom: 5px;">COMPETENCIA INTERNACIONAL DE BARTENDERS</h2>
+                <p style="margin: 0; font-size: 0.9rem;">Festival de Destiladores Patagónicos (5, 6 y 7 de diciembre de 2026 - Bariloche)</p>
+            </div>
 
-      <!-- Punto 4 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>4. Uso Obligatorio de Botánicos o Ingredientes Patagónicos</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Es condición indispensable que la receta incorpore al menos un botánico, fruto, infusión, destilado o ingrediente autóctono característico de la región cordillerana o estepa patagónica (ej. calafate, paramela, murtilla, enebro local, hierbas nativas, etc.).</p>
-        </div>
-      </div>
+            <!-- ACORDEÓN DE LOS 20 PUNTOS -->
+            <div class="acordeon-contenedor">
 
-      <!-- Punto 5 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>5. Estación de Trabajo e Instrumental</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">La organización proveerá una estación de trabajo base con servicios de frío, agua y apoyo logístico. El competidor deberá presentarse con su propio juego de herramientas de mano de uso profesional (shaker, jigger, cucharas, pinzas, etc.).</p>
-        </div>
-      </div>
+                <!-- Punto 1 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>1. OBJETIVO DE LA COMPETENCIA</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La Competencia Internacional de Bartenders – Copa Espíritu del Sur tiene como objetivo promover la creatividad, técnica, conocimiento y profesionalismo de bartenders nacionales e internacionales, poniendo en valor los destilados participantes del Festival de Destiladores Patagónicos.<br><br>La competencia busca generar un espacio de encuentro entre profesionales y aficionados avanzados de la coctelería, productores de bebidas espirituosas y referentes del sector, destacando especialmente la identidad, los productos y la inspiración vinculada a la Patagonia.<br><br>La competencia se desarrollará en dos instancias principales:<br>• Primera Ronda – Clasificación<br>• Segunda Ronda – Final<br><br>La organización podrá establecer una instancia adicional de desempate cuando resulte necesario.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 6 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>6. Cantidad de Cócteles a Elaborar</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Durante su tiempo en escena, el participante deberá elaborar exactamente dos (2) unidades idénticas del cóctel de autor: una destinada a la evaluación visual y sensorial del jurado de degustación, y otra destinada a la exhibición fotográfica institucional.</p>
-        </div>
-      </div>
+                <!-- Punto 2 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>2. PARTICIPANTES</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La competencia está abierta a bartenders nacionales e internacionales.<br>Podrán participar todas aquellas personas mayores de 18 años que deseen formar parte de la competencia, independientemente de que se encuentren actualmente desempeñándose profesionalmente en bares, restaurantes, hoteles, barras móviles u otros establecimientos gastronómicos.<br>No será requisito encontrarse actualmente en actividad profesional como bartender.<br>La competencia está abierta tanto a participantes residentes en Argentina como a participantes residentes en otros países.<br><br>Al momento de la inscripción, cada participante deberá informar:<br>• Nombre y apellido.<br>• Documento de identidad o documentación correspondiente.<br>• País de origen.<br>• Lugar de residencia.<br>• Datos de contacto.<br>• Instagram y/o redes sociales.<br>• Información profesional, si correspondiera.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 7 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>7. Criterios de Evaluación Sensorial</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">El jurado evaluará rigurosamente el balance general en boca, la limpidez de los aromas, la temperatura adecuada de servicio, la armonía de los componentes y la fidelidad de la propuesta con el concepto narrado.</p>
-        </div>
-      </div>
+                <!-- Punto 3 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>3. INSCRIPCIÓN</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La inscripción se realizará exclusivamente mediante el formulario oficial habilitado por la organización.<br>El participante deberá completar correctamente todos los datos solicitados y efectuar el pago correspondiente al valor de inscripción establecido para la competencia.<br>La modalidad de inscripción, fechas, valor y medios de pago serán informados oficialmente a través de la página web y canales oficiales del Festival.<br>No existirá un cupo máximo de participantes.<br>Toda persona que cumpla con los requisitos establecidos, complete correctamente su inscripción y abone el derecho correspondiente tendrá derecho a participar en la Primera Ronda.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 8 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>8. Técnica, Destreza y Manipulación</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Se valorará la soltura técnica, la seguridad operativa, el dominio de los métodos clásicos y modernos de coctelería, la economía de movimientos y el respeto por los tiempos de ejecución establecidos.</p>
-        </div>
-      </div>
+                <!-- Punto 4 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>4. SISTEMA GENERAL DE COMPETENCIA</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La competencia estará dividida en dos etapas:<br><br><strong>PRIMERA RONDA – CLASIFICACIÓN</strong><br>Todos los participantes competirán en una primera instancia mediante la elaboración de un cóctel de autor utilizando uno de los destilados incluidos en el listado oficial de destilados participantes del Festival.<br>La organización enviará a cada bartender inscripto, una vez finalizado el período de inscripción correspondiente, el listado oficial de los destilados participantes que podrán ser utilizados en esta instancia.<br>Cada bartender deberá encontrarse preparado para elaborar su propuesta utilizando los productos incluidos en dicho listado.<br>El participante deberá presentar previamente la receta correspondiente a la propuesta que utilizará en la competencia, de acuerdo con el formulario y los plazos establecidos por la organización.<br><br><strong>CLASIFICACIÓN A LA FINAL</strong><br>Todos los participantes serán evaluados mediante un sistema de puntuación de 100 puntos.<br>Los participantes que obtengan los mejores puntajes de la Primera Ronda accederán a la Segunda Ronda – Final.<br>Para el presente reglamento se establece inicialmente el ingreso de los 10 participantes con mayor puntuación.<br>En caso de empate en el último puesto de clasificación, se aplicará el sistema de desempate establecido en el presente reglamento.<br>Nota de organización: la cantidad definitiva de finalistas podrá ser establecida por la organización antes del cierre de inscripciones, manteniéndose siempre abierta y sin límite la cantidad de participantes de la Primera Ronda.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 9 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>9. Historia, Relato y Concepto de Autor</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Parte fundamental de la puntuación recae en la capacidad del bartender para argumentar el trasfondo cultural, histórico, geográfico o conceptual que inspiró la creación de su cóctel durante su presentación en vivo.</p>
-        </div>
-      </div>
+                <!-- Punto 5 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>5. DESTILADOS Y RECETAS</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;"><strong>5.1. Primera Ronda</strong><br>En la Primera Ronda, cada participante deberá elaborar un cóctel utilizando como base alcohólica principal, con un mínimo de 30 ml, uno de los destilados incluidos en el listado oficial de productos participantes del Festival.<br>El listado será enviado a los participantes una vez finalizado el proceso de inscripción de bartenders y destiladores.<br>El participante deberá seleccionar su producto de acuerdo con las condiciones establecidas por la organización.<br><br><strong>5.2. Segunda Ronda – Final</strong><br>Los participantes clasificados deberán estar preparados para elaborar una nueva propuesta para la instancia final.<br>Para la Final, la organización podrá establecer como desafío la utilización de uno de los destilados ganadores de la Copa Espíritu del Sur.<br>Los destilados que deberán utilizarse en la Final serán comunicados a los participantes una vez finalizada la premiación de la Copa Espíritu del Sur y dentro del plazo operativo establecido por la organización.<br>De esta manera, los finalistas deberán demostrar su capacidad creativa y técnica frente a un desafío determinado con productos que hayan obtenido reconocimiento en la competencia principal de destilados.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 10 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>10. Sistema de Penalizaciones por Tiempo</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Exceder el tiempo límite asignado de 7 minutos acarreará una penalización directa de puntos sobre la calificación final otorgada por el jurado (descuento progresivo por cada minuto o fracción excedida).</p>
-        </div>
-      </div>
+                <!-- Punto 6 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>6. PROPUESTA DEL CÓCTEL</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La receta presentada deberá ser original y de autoría del participante.<br>Se establece un máximo de 7 ingredientes, incluyendo dashes, gotas y decoraciones comestibles.<br>El hielo no será considerado ingrediente.<br>Se permitirán elaboraciones caseras o homemade, tales como: almíbares, cordiales, bitters, infusiones o preparaciones similares.<br>Cuando se utilicen elaboraciones homemade, el participante deberá presentar la receta correspondiente para permitir su identificación y reproducibilidad.<br>La receta presentada deberá mantenerse sin modificaciones sustanciales durante la competencia.<br>Cualquier modificación que pueda alterar significativamente el concepto, composición o perfil del cóctel deberá ser comunicada y autorizada por la organización o el responsable de la competencia.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 11 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>11. Indumentaria y Presencia Profesional</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Los competidores deberán vestir de manera sobria y profesional, siendo obligatorio el uso de chaquetilla, delantal de barra pulcro y limpio, cabello recogido (si corresponde) y calzado cerrado de seguridad antideslizante.</p>
-        </div>
-      </div>
+                <!-- Punto 7 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>7. INSPIRACIÓN Y CONCEPTO</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">Cada participante deberá presentar una breve descripción del concepto, historia e inspiración de su cóctel.<br>La propuesta deberá establecer una relación con la identidad, cultura, paisaje, productos o espíritu de la Patagonia.<br>La descripción escrita podrá tener una extensión máxima de 200 palabras.<br>Durante la presentación en vivo, el bartender podrá explicar oralmente el concepto de su creación frente al jurado.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 12 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>12. Restricciones sobre Ingredientes</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Queda prohibido el uso de insumos comerciales adulterados o preparaciones químicas industriales no aptas para consumo humano. Los almíbares, infusiones y cordiales caseros deben ser debidamente identificados y declarados.</p>
-        </div>
-      </div>
+                <!-- Punto 8 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>8. ELEMENTOS E INSUMOS</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">Todos los insumos necesarios para la elaboración del cóctel serán responsabilidad del participante.<br>Cada bartender deberá aportar: destilados o productos necesarios, jugos, frutas, almíbares, cordiales, bitters, garnish y decoraciones, agua, cristalería especial, elementos de fuego o técnicas especiales, y cualquier otro ingrediente o elemento particular necesario para su propuesta.<br>La organización proveerá exclusivamente el hielo de trabajo establecido para la competencia y la infraestructura general definida para la realización de la prueba.<br>Cada participante deberá llevar su propio kit profesional de herramientas (coctelera, jiggers, coladores, cucharas, pinzas, mixing glass, herramientas de corte, utensilios específicos).<br>La utilización de elementos especiales, fuego, humo u otras técnicas deberá respetar previamente las condiciones de seguridad establecidas por la organización.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 13 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>13. Base Alcohólica y Destilados Patagónicos</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">El alcohol principal de la receta debe estar compuesto preferentemente por destilados de producción regional o artesanal (gin, vodka, whisky, vermut o espirituosas patagónicas avaladas por los registros sanitarios correspondientes).</p>
-        </div>
-      </div>
+                <!-- Punto 9 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>9. DESARROLLO DE LA COMPETENCIA EN VIVO</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">Cada participante dispondrá de un tiempo máximo de 5 minutos para la elaboración y presentación de su cóctel.<br>El bartender deberá elaborar ejemplares idénticos de su propuesta.<br>La cantidad de cócteles a elaborar dependerá de la cantidad de integrantes del jurado:<br>• 3 jurados: 4 cócteles en total.<br>• 5 jurados: 6 cócteles en total.<br>En todos los casos, deberá elaborarse un cóctel idéntico para cada integrante del jurado y un cóctel adicional destinado a presentación y registro fotográfico.<br>Todos los ejemplares deberán ser idénticos en composición, cantidad, presentación y decoración.<br>La organización podrá establecer previamente el orden de participación mediante sorteo u otro sistema operativo.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 14 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>14. Fallo y Apelaciones del Jurado</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Las planillas de calificación son completadas por jueces especializados independientes. Las decisiones emitidas por el tribunal técnico y sensorial son definitivas e inapelables una vez firmadas las actas de premiación.</p>
-        </div>
-      </div>
+                <!-- Punto 10 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>10. JURADO</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La competencia contará con un jurado integrado por 3 o 5 evaluadores, según determine la organización.<br>Los integrantes deberán contar con conocimientos, experiencia y capacidad suficiente para evaluar los distintos aspectos técnicos, sensoriales y creativos de la competencia.<br>El jurado podrá estar integrado por bartenders, mixólogos, sommeliers, destiladores, enólogos, profesionales de la industria gastronómica y especialistas vinculados al mundo de la coctelería y los destilados.<br>La organización determinará la composición definitiva del jurado.<br>Los jueces deberán evaluar a cada participante de manera objetiva e independiente, considerando exclusivamente los criterios establecidos en este reglamento.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 15 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>15. Orden de Participación y Sorteo</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">El orden de salida a escena de cada concursante se determinará mediante un sorteo previo fiscalizado por la organización, el cual será comunicado con la debida antelación a todos los inscriptos confirmados.</p>
-        </div>
-      </div>
+                <!-- Punto 11 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>11. SISTEMA DE EVALUACIÓN</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">Cada participante será evaluado sobre un máximo de 100 puntos.<br><br><strong>1. SABOR, EQUILIBRIO Y EXPRESIÓN DEL DESTILADO – 40 PUNTOS</strong><br>Aroma, sabor, balance, integración de los ingredientes, persistencia, armonía general y capacidad del cóctel para expresar y destacar correctamente el destilado utilizado.<br><br><strong>2. TÉCNICA, DESTREZA E HIGIENE – 25 PUNTOS</strong><br>Manejo de herramientas, precisión, técnica de elaboración, orden y eficiencia, higiene, organización de la estación de trabajo y profesionalismo durante la ejecución.<br><br><strong>3. PRESENTACIÓN Y APARIENCIA – 15 PUNTOS</strong><br>Presentación general, cristalería, garnish, limpieza, armonía visual y adecuación estética al concepto presentado.<br><br><strong>4. CREATIVIDAD Y ORIGINALIDAD – 10 PUNTOS</strong><br>Originalidad de la receta, creatividad, utilización inteligente de los ingredientes, innovación y capacidad de diferenciar la propuesta.<br><br><strong>5. CONCEPTO, INSPIRACIÓN Y PRESENTACIÓN ORAL – 10 PUNTOS</strong><br>Claridad del concepto, relación con Patagonia, conocimiento de la receta, capacidad de comunicación, seguridad y claridad durante la presentación.<br><br><strong>PUNTAJE MÁXIMO: 100 PUNTOS.</strong></p>
+                    </div>
+                </div>
 
-      <!-- Punto 16 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>16. Normas de Higiene y Mantenimiento de Barra</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">El competidor es responsable de mantener la limpieza, el orden de los insumos y la correcta gestión de residuos en su estación durante toda su rutina. El desorden generalizado afectará negativamente el puntaje de técnica.</p>
-        </div>
-      </div>
+                <!-- Punto 12 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>12. CLASIFICACIÓN</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">Finalizada la Primera Ronda, se confeccionará una clasificación general de acuerdo con el puntaje obtenido por cada participante.<br>Los participantes con los mejores puntajes accederán a la Segunda Ronda – Final, conforme a la cantidad establecida por la organización.<br>Los resultados serán determinados exclusivamente por las planillas oficiales de puntuación.<br>Los jueces no podrán modificar sus puntuaciones una vez entregadas las planillas, salvo que exista un error material comprobable y sea autorizado por la dirección de la competencia.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 17 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>17. Cesión de Derechos de Imagen y Difusión</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">La inscripción y participación en el evento autoriza implícitamente a la organización a capturar, reproducir y difundir material fotográfico, audiovisual y las recetas de los cócteles con fines promocionales y de prensa.</p>
-        </div>
-      </div>
+                <!-- Punto 13 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>13. SISTEMA DE DESEMPATE</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">En caso de existir empate en cualquier posición que determine clasificación, premiación o acceso a una instancia posterior, se aplicará el siguiente orden de desempate:<br>• <strong>Primer criterio:</strong> mayor puntuación obtenida en Sabor, Equilibrio y Expresión del Destilado.<br>• <strong>Segundo criterio:</strong> mayor puntuación obtenida en Técnica, Destreza e Higiene.<br>• <strong>Tercer criterio:</strong> mayor puntuación obtenida en Presentación y Apariencia.<br>• <strong>Cuarto criterio:</strong> mayor puntuación obtenida en Creatividad y Originalidad.<br>Si luego de aplicar estos criterios persiste el empate, la Dirección de la Competencia podrá solicitar una deliberación extraordinaria del jurado para determinar el resultado final. La decisión adoptada en esta instancia será definitiva.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 18 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>18. Premiación, Trofeos y Estímulos</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Se consagrará un podio oficial reconociendo al 1°, 2° y 3° puesto de la "Copa Espíritu del Sur", entregando medallas de honor, diplomas certificados, trofeos alegóricos y menciones especiales otorgadas por los sponsors del festival.</p>
-        </div>
-      </div>
+                <!-- Punto 14 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>14. SEGUNDA RONDA – FINAL</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">Los participantes clasificados deberán presentar una nueva propuesta de cóctel de acuerdo con el desafío establecido por la organización.<br>La organización podrá determinar que el cóctel de la Final seja elaborado utilizando uno de los destilados ganadores de la Copa Espíritu del Sur.<br>Los participantes serán informados sobre los productos correspondientes una vez finalizada la premiación de los destilados.<br>La Final tendrá como objetivo evaluar la capacidad del bartender para interpretar un producto reconocido por el jurado de la Copa Espíritu del Sur y transformarlo en una propuesta de coctelería de alto nivel.<br>Los criterios de evaluación serán los establecidos en el presente reglamento.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 19 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>19. Cancelaciones, Ausencias y Reembolsos</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">Los aranceles de inscripción abonados no contemplan devolución ni reembolso ante la inasistencia injustificada del participante el día del evento, salvo casos de fuerza mayor debidamente certificados ante la organización.</p>
-        </div>
-      </div>
+                <!-- Punto 15 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>15. TIEMPO Y PENALIZACIONES</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">El tiempo máximo establecido para cada presentación será de 5 minutos, salvo que la organización establezca expresamente otro tiempo para la instancia final.<br>El exceso de tiempo podrá generar penalizaciones sobre el puntaje técnico.<br>La organización podrá establecer previamente el sistema exacto de penalización por exceso de tiempo y comunicarlo a los participantes antes del inicio de la competencia.<br>El incumplimiento de las condiciones esenciales de la receta presentada, la utilización de ingredientes no declarados o cualquier conducta que altere deliberadamente las condiciones de competencia podrá generar penalizaciones o descalificación, según la gravedad de la situación.</p>
+                    </div>
+                </div>
 
-      <!-- Punto 20 -->
-      <div class="acordeon-item" style="margin-bottom: 8px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-        <div class="acordeon-header" onclick="toggleAcordeon(this)" style="background: #f8f9fa; padding: 12px 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: #333; font-size: 0.95rem;">
-          <span>20. Aceptación Total de Bases y Condiciones</span><i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; transition: transform 0.3s;"></i>
-        </div>
-        <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #fff; padding: 0 15px; color: #555; font-size: 0.9rem;">
-          <p style="padding: 12px 0; margin: 0;">El solo hecho de completar el registro de inscripción y abonar la tarifa implica por parte del concursante el pleno conocimiento, comprensión y total aceptación de cada uno de los 20 puntos que componen este reglamento oficial.</p>
-        </div>
-      </div>
+                <!-- Punto 16 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>16. PROPIEDAD Y PUBLICACIÓN DE LA RECETA GANADORA</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">El participante que resulte ganador de la Competencia Internacional de Bartenders – Copa Espíritu del Sur autoriza expresamente a la organización del Festival de Destiladores Patagónicos a publicar y difundir la receta presentada en la competencia con fines de comunicación, promoción y difusión del evento a través de redes sociales, página web, medios de prensa y otros canales oficiales del Festival.</p>
+                    </div>
+                </div>
 
+                <!-- Punto 17 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>17. DERECHOS DE IMAGEN</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La participación en la competencia implica la autorización para que la organización pueda utilizar fotografías, videos y registros audiovisuales realizados durante el evento en los medios de comunicación, redes sociales, página web y materiales promocionales del Festival de Destiladores Patagónicos.</p>
+                    </div>
+                </div>
+
+                <!-- Punto 18 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>18. CONSUMO RESPONSABLE Y SEGURIDAD</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La organización promueve el consumo responsable de bebidas alcohólicas.<br>No se permitirá la participación de personas que se presenten en condiciones que comprometan su seguridad o la de terceros.<br>La utilización de fuego, humo, herramientas especiales u otras técnicas deberá cumplir con las normas de seguridad establecidas por la organización.<br>La Dirección de la Competencia podrá impedir la utilización de cualquier técnica o elemento que considere riesgoso para participantes, jurados, personal o público.</p>
+                    </div>
+                </div>
+
+                <!-- Punto 19 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>19. PREMIACIÓN</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La competencia otorgará los siguientes reconocimientos:<br>🥇 <strong>PRIMER PUESTO:</strong> Ganador de la Competencia Internacional de Bartenders – Copa Espíritu del Sur 2026<br>🥈 <strong>SEGUNDO PUESTO</strong><br>🥉 <strong>TERCER PUESTO</strong><br>Los premios correspondientes a cada posición serán comunicados oficialmente por la organización. La organización podrá incorporar premios especiales, menciones o reconocimientos adicionales.</p>
+                    </div>
+                </div>
+
+                <!-- Punto 20 -->
+                <div class="acordeon-item" style="margin-bottom: 10px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 6px; overflow: hidden;">
+                    <div class="acordeon-header" onclick="toggleAcordeon(this)" style="padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #d4af37; font-weight: bold;">
+                        <span>20. AUTORIDAD DE LA COMPETENCIA</span>
+                        <i class="fa-solid fa-chevron-down" style="transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="acordeon-body" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(20,20,20,0.9); color: #ccc; padding: 0 15px;">
+                        <p style="padding: 12px 0; margin: 0; font-size: 0.95rem; line-height: 1.5;">La organización del Festival de Destiladores Patagónicos será la autoridad responsable de la coordinación y desarrollo de la competencia.<br>La Dirección de la Competencia tendrá facultades para resolver cuestiones operativas, técnicas o reglamentarias que pudieran surgir, procurando garantizar igualdad de condiciones.<br>Las decisiones finales adoptadas por la Dirección de la Competencia y el Jurado serán definitivas.<br><br><em>COPA ESPÍRITU DEL SUR 2026 – Competencia Internacional de Bartenders – Festival de Destiladores Patagónicos</em></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+
+<!-- JAVASCRIPT DE FUNCIONAMIENTO -->
+<script>
+  function abrirModalReglamento() {
+    document.getElementById('modalReglamento').style.display = 'flex';
+  }
+
+  function cerrarModalReglamento() {
+    document.getElementById('modalReglamento').style.display = 'none';
+  }
+
+  function toggleAcordeon(header) {
+    const bodyActual = header.nextElementSibling;
+    const chevron = header.querySelector('.fa-chevron-down');
+    const estaAbierto = bodyActual.style.maxHeight && bodyActual.style.maxHeight !== '0px';
+
+    // Cierra todos los demás acordeones
+    document.querySelectorAll('.acordeon-body').forEach(b => {
+      b.style.maxHeight = '0px';
+    });
+    document.querySelectorAll('.fa-chevron-down').forEach(c => {
+      c.style.transform = 'rotate(0deg)';
+    });
+
+    // Si el actual no estaba abierto, lo abre
+    if (!estaAbierto) {
+      bodyActual.style.maxHeight = bodyActual.scrollHeight + 'px';
+      if (chevron) chevron.style.transform = 'rotate(180deg)';
+    }
+  }
+</script>
 <script>
   function abrirModalReglamento() {
     document.getElementById('modalReglamento').style.display = 'flex';
