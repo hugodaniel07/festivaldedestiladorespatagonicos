@@ -415,14 +415,17 @@ iframe[src*="netlify"] {
 </div>
   </section>
 <!-- SECCIÓN REGLAMENTO - MODAL Y ACORDEÓN -->
-<section id="reglamento-seccion" style="padding: 40px 20px; background-color: #111; color: #fff; text-align: center;">
-    <div class="visual-tile" style="max-width: 300px; margin: 0 auto; background: #222; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" alt="Cóctel" style="width: 100%; height: 180px; object-fit: cover; filter: brightness(0.7);">
-        <div style="padding: 20px;">
-            <button onclick="abrirModalReglamento()" style="background-color: #d4af37; color: #000; border: none; padding: 12px 20px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                <i class="fa-solid fa-scroll"></i> Ver Reglamento Oficial
-            </button>
-        </div>
+<!-- SECCIÓN REGLAMENTO -->
+<section id="reglamento-seccion" style="padding: 40px 20px; background-color: #111; display: flex; justify-content: center;">
+    <div style="position: relative; width: 100%; max-width: 600px; height: 320px; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; box-sizing: border-box; box-shadow: 0 6px 20px rgba(0,0,0,0.6);">
+        
+        <!-- Imagen de fondo ocupando todo el ancho y alto -->
+        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1000&q=80" alt="Cóctel" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55); z-index: 0;">
+        
+        <!-- Botón grande flotando encima -->
+        <button onclick="abrirModalReglamento()" style="position: relative; z-index: 1; background-color: #d4af37; color: #000; border: none; padding: 16px 24px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+            <i class="fa-solid fa-scroll" style="font-size: 1.2rem;"></i> Ver Reglamento Oficial
+        </button>
     </div>
 </section>
 
